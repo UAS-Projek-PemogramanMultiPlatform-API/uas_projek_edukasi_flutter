@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:/projek_aplikasi_edukasi_uas/home.dart';
 
 void main() {
   runApp(const MainApp());
