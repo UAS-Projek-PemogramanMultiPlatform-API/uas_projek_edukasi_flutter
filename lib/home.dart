@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projek_aplikasi_edukasi_uas/main.dart';
+import 'package:projek_aplikasi_edukasi_uas/widget/category.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -7,104 +7,97 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('HomePage'),
-        backgroundColor:
-            Color.fromARGB(255, 62, 151, 239), // Ubah warna latar belakang
-        foregroundColor: const Color.fromARGB(255, 0, 0, 0), // Ubah warna teks
-      ),
-      body: SingleChildScrollView(
-        child: SafeArea(
+      body: ListView(
+        children: [
+          Container(
+            padding: const EdgeInsets.only(top: 15, left: 15, right: 15, bottom: 10),
+            decoration: const BoxDecoration(
+              color: Color(0xFF4CAF50),
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20),
+              ),
+            ),
             child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Stack(
               children: [
-                Container(
-                    height: 140, width: double.infinity, color: Color.fromARGB(255, 84, 205, 246)),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const SizedBox(
-                      height: 10,
+                    Icon(
+                      Icons.dashboard_customize_outlined,
+                      size: 30,
+                      color: Colors.white,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(15),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Container(
-                                  alignment: Alignment.topLeft,
-                                  height: 45,
-                                  width: 45,
-                                  decoration: BoxDecoration(
-                                      image: const DecorationImage(
-                                          image: AssetImage(
-                                              'aset/profil/Profile.png')),
-                                      borderRadius: BorderRadius.circular(25),
-                                      border: Border.all(
-                                          color: Colors.white,
-                                          style: BorderStyle.solid,
-                                          width: 2))),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              const Text("Welcome Back!",
-                                  style: TextStyle(
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.bold))
-                            ],
-                          ),
-                          Container(
-                              alignment: Alignment.topRight,
-                              child: const Icon(
-                                Icons.notifications_active,
-                                color: Colors.white,
-                                size: 30,
-                              )),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(15),
-                      child: Container(
-                        height: 60,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            color: const Color(0xFFF5F5F7),
-                            borderRadius: BorderRadius.circular(30)),
-                        child: TextField(
-                          cursorHeight: 20,
-                          autofocus: false,
-                          decoration: InputDecoration(
-                              hintText: "Cari Sepatu Favoritmu",
-                              prefixIcon: const Icon(Icons.search),
-                              border: OutlineInputBorder(
-                                  borderSide:
-                                      const BorderSide(color: Colors.grey, width: 2),
-                                  borderRadius: BorderRadius.circular(30))),
-                        ),
-                      ),
+                    Icon(
+                      Icons.notifications_outlined,
+                      size: 30,
+                      color: Colors.white,
                     ),
                   ],
-                )
+                ),
+                const SizedBox(height: 20),
+                const Padding(
+                  padding: EdgeInsets.only(left: 3, bottom: 15),
+                  child: Text(
+                    "Ready To Learn?",
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 1,
+                      wordSpacing: 2,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 5, bottom: 20),
+                  width: MediaQuery.of(context).size.width,
+                  height: 55,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "Find your languages",
+                      hintStyle: TextStyle(
+                        color: Colors.black.withOpacity(0.5),
+                      ),
+                      prefixIcon: const Icon(
+                        Icons.search_off_sharp,
+                        size: 25,
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
-            const Padding(
-              padding: EdgeInsets.all(15),
-              child: Text("Pelajaran Pilihan",
-                  style:
-                      TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20, left: 15, right: 15),
+            child: GridView.builder(
+              itemCount: CategoryData.catNames.length,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                childAspectRatio: 1.1,
+              ),
+              itemBuilder: (context, index) {
+                return Category(
+                  name: CategoryData.catNames[index],
+                  color: CategoryData.catColors[index],
+                  icon: CategoryData.catIcons[index],
+                );
+              },
             ),
-          ],
-        )),
+          ),
+        ],
       ),
-      // drawer: _myDrawer(context),
     );
   }
 }
+
+
