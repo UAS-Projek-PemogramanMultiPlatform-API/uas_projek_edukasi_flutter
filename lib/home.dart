@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projek_aplikasi_edukasi_uas/widget/category.dart';
+import 'package:projek_aplikasi_edukasi_uas/widget/courses.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -77,21 +78,27 @@ class HomePage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 20, left: 15, right: 15),
-            child: GridView.builder(
-              itemCount: CategoryData.catNames.length,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                childAspectRatio: 1.1,
-              ),
-              itemBuilder: (context, index) {
-                return Category(
-                  name: CategoryData.catNames[index],
-                  color: CategoryData.catColors[index],
-                  icon: CategoryData.catIcons[index],
-                );
-              },
+            child: Column(
+              children: [
+                GridView.builder(
+                  itemCount: CategoryData.catNames.length,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    childAspectRatio: 1.1,
+                  ),
+                  itemBuilder: (context, index) {
+                    return Category(
+                      key: Key('category_$index'),
+                      name: CategoryData.catNames[index],
+                      color: CategoryData.catColors[index],
+                      icon: CategoryData.catIcons[index],
+                    );
+                  },
+                ),
+                const Courses(), // Panggil widget Courses di sini
+              ],
             ),
           ),
         ],
@@ -99,5 +106,4 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
 

@@ -3,15 +3,14 @@ import 'package:flutter/material.dart';
 class Category extends StatelessWidget {
   final String name;
   final Color color;
-  final Icon icon;
+  final Icon? icon; // Make icon optional by adding '?'
 
   const Category({
-    super.key,
-
+    required Key key, // Change super.key to Key key
     required this.name,
     required this.color,
-    required this.icon,
-  });
+    this.icon, // Change Icon to Icon?
+  }) : super(key: key); // Assign key to super
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,7 @@ class Category extends StatelessWidget {
             shape: BoxShape.circle,
           ),
           child: Center(
-            child: icon,
+            child: icon ?? Container(), // Handle null icon
           ),
         ),
         const SizedBox(height: 10),
@@ -70,4 +69,3 @@ class CategoryData {
     const Icon(Icons.leaderboard_outlined, color: Colors.white, size: 30,),
   ];
 }
-
