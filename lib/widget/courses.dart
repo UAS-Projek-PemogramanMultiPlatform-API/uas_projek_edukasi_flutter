@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:projek_aplikasi_edukasi_uas/courses_detail.dart';
 
 class Courses extends StatelessWidget {
-  const Courses({Key? key});
+  const Courses({Key? key}) : super(key: key);  // Perbaikan di sini
 
   final List<String> imgList = const [
     'English',
@@ -11,10 +12,10 @@ class Courses extends StatelessWidget {
   ];
 
   final List<int> videoCounts = const [
-    45,  // English
-    32,  // Germany
-    35,  // Italy
-    38,  // Spain
+    45, // English
+    32, // Germany
+    35, // Italy
+    38, // Spain
   ];
 
   @override
@@ -53,12 +54,22 @@ class Courses extends StatelessWidget {
               children: imgList.asMap().entries.map((entry) {
                 final int index = entry.key;
                 return InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CoursesDetail(
+                          img: imgList[index],
+                          videoCount: videoCounts[index],
+                          ), // Perbaikan di sini
+                      ),
+                    );
+                  },
                   child: Container(
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: Color(0xFFF5F3FF),
+                      color: const Color(0xFFF5F3FF),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -71,7 +82,7 @@ class Courses extends StatelessWidget {
                         const SizedBox(height: 10),
                         Text(
                           imgList[index],
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.w600,
                             color: Colors.black,
@@ -80,7 +91,7 @@ class Courses extends StatelessWidget {
                         const SizedBox(height: 5),
                         Text(
                           "${videoCounts[index]} Videos",
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
                             color: Colors.black54,
@@ -98,4 +109,3 @@ class Courses extends StatelessWidget {
     );
   }
 }
-
