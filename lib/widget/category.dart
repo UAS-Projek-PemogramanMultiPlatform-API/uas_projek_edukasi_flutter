@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projek_aplikasi_edukasi_uas/quiz.dart'; 
+import 'package:projek_aplikasi_edukasi_uas/forum_diskusi.dart'; 
 
 class Category extends StatelessWidget {
   final String name;
@@ -21,6 +22,11 @@ class Category extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => QuizLanguageSelectionPage()), // Navigate to QuizLanguageSelectionPage
+          );
+        } else if (name == 'Forum Diskusi') { // Check if the category is Forum Diskusi
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ForumDiscussionPage()), // Navigate to ForumDiskusiPage
           );
         }
       },

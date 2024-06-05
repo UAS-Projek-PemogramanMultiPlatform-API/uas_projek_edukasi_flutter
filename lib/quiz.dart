@@ -10,22 +10,28 @@ class QuizLanguageSelectionPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Select Language for Quiz'),
+        backgroundColor: const Color(0xFF4CAF50),
       ),
-      body: ListView.builder(
-        itemCount: languages.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(languages[index]),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => QuizPage(language: languages[index]),
-                ),
+      body: Stack(
+        children: [
+          ListView.builder(
+            padding: const EdgeInsets.only(top: 30), // Add padding to avoid overlapping with the back button
+            itemCount: languages.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(languages[index]),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => QuizPage(language: languages[index]),
+                    ),
+                  );
+                },
               );
             },
-          );
-        },
+          ),
+        ],
       ),
     );
   }
@@ -155,15 +161,20 @@ class QuizPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('$language Quiz'),
       ),
-      body: ListView.builder(
-        itemCount: questions.length,
-        itemBuilder: (context, index) {
-          return QuizQuestion(
-            question: questions[index]['questionText'] as String,
-            answers: questions[index]['answers'] as List<String>,
-            correctAnswer: questions[index]['correctAnswer'] as String,
-          );
-        },
+      body: Stack(
+        children: [
+          ListView.builder(
+            padding: const EdgeInsets.only(top: 30), // Add padding to avoid overlapping with the back button
+            itemCount: questions.length,
+            itemBuilder: (context, index) {
+              return QuizQuestion(
+                question: questions[index]['questionText'] as String,
+                answers: questions[index]['answers'] as List<String>,
+                correctAnswer: questions[index]['correctAnswer'] as String,
+              );
+            },
+          ),
+        ],
       ),
     );
   }
