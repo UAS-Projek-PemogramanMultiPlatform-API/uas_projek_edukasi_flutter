@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:projek_aplikasi_edukasi_uas/quiz.dart'; 
-import 'package:projek_aplikasi_edukasi_uas/forum_diskusi.dart'; 
+import 'package:projek_aplikasi_edukasi_uas/kamus.dart';
+import 'package:projek_aplikasi_edukasi_uas/quiz.dart';
+import 'package:projek_aplikasi_edukasi_uas/forum_diskusi.dart';
 
 class Category extends StatelessWidget {
   final String name;
@@ -18,15 +19,28 @@ class Category extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        if (name == 'Quiz') { // Check if the category is Quiz
+        if (name == 'Quiz') {
+          // Check if the category is Quiz
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => QuizLanguageSelectionPage()), // Navigate to QuizLanguageSelectionPage
+            MaterialPageRoute(
+                builder: (context) =>
+                    const QuizLanguageSelectionPage()), // Navigate to QuizLanguageSelectionPage
           );
-        } else if (name == 'Forum Diskusi') { // Check if the category is Forum Diskusi
+        } else if (name == 'Forum Diskusi') {
+          // Check if the category is Forum Diskusi
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => ForumDiscussionPage()), // Navigate to ForumDiskusiPage
+            MaterialPageRoute(
+                builder: (context) =>
+                    const ForumDiscussionPage()), // Navigate to ForumDiskusiPage
+          );
+        } else if (name == 'Kamus') {
+          // Check if the category is Kamus
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const KamusPage()), // Navigate to KamusPage
           );
         }
       },
@@ -72,8 +86,20 @@ class CategoryData {
   ];
 
   static final List<Icon> catIcons = [
-    const Icon(Icons.quiz_outlined, color: Colors.white, size: 30,),
-    const Icon(Icons.bookmark_border_outlined, color: Colors.white, size: 30,),
-    const Icon(Icons.forum_outlined, color: Colors.white, size: 30,),
+    const Icon(
+      Icons.quiz_outlined,
+      color: Colors.white,
+      size: 30,
+    ),
+    const Icon(
+      Icons.bookmark_border_outlined,
+      color: Colors.white,
+      size: 30,
+    ),
+    const Icon(
+      Icons.forum_outlined,
+      color: Colors.white,
+      size: 30,
+    ),
   ];
 }

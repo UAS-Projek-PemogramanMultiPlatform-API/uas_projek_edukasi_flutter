@@ -8,11 +8,11 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   bool _isEditing = false;
   List<UserInfo> _userInfoList = [
-    UserInfo(title: "Name", value: "Putu Adi Saputra"),
-    UserInfo(title: "Gender", value: "Male"),
-    UserInfo(title: "Phone Number", value: "085339966280"),
-    UserInfo(title: "Email", value: "putuad1saputr4@gmail.com"),
-    UserInfo(title: "Date of Birth", value: "17 November 2022"),
+    UserInfo(title: "Name", value: ""),
+    UserInfo(title: "Gender", value: ""),
+    UserInfo(title: "Phone Number", value: ""),
+    UserInfo(title: "Email", value: ""),
+    UserInfo(title: "Date of Birth", value: ""),
   ];
   List<UserInfo> _editedUserInfoList = [];
 
