@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projek_aplikasi_edukasi_uas/quiz.dart'; 
 
 class Category extends StatelessWidget {
   final String name;
@@ -14,29 +15,39 @@ class Category extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height: 60,
-          width: 60,
-          decoration: BoxDecoration(
-            color: color,
-            shape: BoxShape.circle,
+    return InkWell(
+      onTap: () {
+        if (name == 'Quiz') { // Check if the category is Quiz
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => QuizLanguageSelectionPage()), // Navigate to QuizLanguageSelectionPage
+          );
+        }
+      },
+      child: Column(
+        children: [
+          Container(
+            height: 60,
+            width: 60,
+            decoration: BoxDecoration(
+              color: color,
+              shape: BoxShape.circle,
+            ),
+            child: Center(
+              child: icon ?? Container(), // Handle null icon
+            ),
           ),
-          child: Center(
-            child: icon ?? Container(), // Handle null icon
-          ),
-        ),
-        const SizedBox(height: 10),
-        Text(
-          name,
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-            color: Colors.black.withOpacity(0.8),
-          ),
-        )
-      ],
+          const SizedBox(height: 10),
+          Text(
+            name,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+              color: Colors.black.withOpacity(0.8),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
