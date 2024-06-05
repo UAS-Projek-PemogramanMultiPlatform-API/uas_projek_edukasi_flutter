@@ -138,11 +138,11 @@ class _CoursesDetailState extends State<CoursesDetail> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Ada promo untuk kamu",
+                              "Mulai menonton",
                               style: TextStyle(fontSize: 12, color: Colors.white),
                             ),
                             Text(
-                              "Dapatkan diskon 100 ribu",
+                              "Dari awal",
                               style: TextStyle(fontSize: 11, color: Colors.white),
                             ),
                           ],

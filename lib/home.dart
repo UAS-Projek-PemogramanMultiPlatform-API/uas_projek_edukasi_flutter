@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projek_aplikasi_edukasi_uas/widget/profile.dart';
 import 'package:projek_aplikasi_edukasi_uas/widget/category.dart';
 import 'package:projek_aplikasi_edukasi_uas/widget/courses.dart';
 
@@ -109,6 +110,14 @@ class HomePage extends StatelessWidget {
           BottomNavigationBarItem(
             icon: Icon(Icons.person_4), label: 'Profil')
         ],
+        onTap: (index) {
+          if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProfilePage()),
+            );
+          }
+        }
       ),
 
     );
