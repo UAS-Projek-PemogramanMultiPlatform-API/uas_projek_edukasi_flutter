@@ -52,7 +52,7 @@ class Courses extends StatelessWidget {
                       MaterialPageRoute(
                         builder: (context) => CoursesDetail(
                           img: imgList[index],
-                          videoCount: videoCounts[index],
+                          // videoCount: videoCounts[index],
                           ), // Perbaikan di sini
                       ),
                     );
