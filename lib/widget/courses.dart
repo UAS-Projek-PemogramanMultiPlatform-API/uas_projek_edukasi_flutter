@@ -37,14 +37,6 @@ class Courses extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                Text(
-                  "Lihat Semua",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xFF674AEF),
-                  ),
-                ),
               ],
             ),
             const SizedBox(height: 10),

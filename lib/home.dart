@@ -25,11 +25,6 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Icon(
-                      Icons.dashboard_customize_outlined,
-                      size: 30,
-                      color: Colors.white,
-                    ),
-                    Icon(
                       Icons.notifications_outlined,
                       size: 30,
                       color: Colors.white,

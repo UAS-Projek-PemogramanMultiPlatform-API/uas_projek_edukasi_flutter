@@ -44,28 +44,19 @@ class Category extends StatelessWidget {
 class CategoryData {
   static final List<String> catNames = [
     "Quiz",
-    "Ebook",
     "Kamus",
-    "Materi Video",
     "Forum Diskusi",
-    "LeaderBoard"
   ];
 
   static final List<Color> catColors = [
     const Color(0xFFFFCF2F),
-    const Color(0xFF6FE08D),
     const Color(0xFF61BDFD),
-    const Color(0xFFFC7F7F),
     const Color(0xFFCB84FB),
-    const Color(0xFF78E667),
   ];
 
   static final List<Icon> catIcons = [
     const Icon(Icons.quiz_outlined, color: Colors.white, size: 30,),
-    const Icon(Icons.book_online_outlined, color: Colors.white, size: 30,),
     const Icon(Icons.bookmark_border_outlined, color: Colors.white, size: 30,),
-    const Icon(Icons.video_collection_outlined, color: Colors.white, size: 30,),
     const Icon(Icons.forum_outlined, color: Colors.white, size: 30,),
-    const Icon(Icons.leaderboard_outlined, color: Colors.white, size: 30,),
   ];
 }
