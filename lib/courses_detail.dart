@@ -16,15 +16,14 @@ class _CoursesDetailState extends State<CoursesDetail> {
 
     // Mapping nama file gambar dengan bahasa terkait
     Map<String, String> languageMap = {
-      'english': 'Bahasa Inggris',
-      'germany': 'Bahasa Jerman',
-      'spain': 'Bahasa Spanyol',
-      'italy': 'Bahasa Italia',
+      'English': 'Bahasa Inggris',
+      'Germany': 'Bahasa Jerman',
+      'Spain': 'Bahasa Spanyol',
+      'Italy': 'Bahasa Italia',
     };
 
-    // Mendapatkan bagian dari nama file gambar untuk menentukan bahasa
-    String imgName = widget.img.split('_').first;
-    String languageName = languageMap[imgName.toLowerCase()] ?? 'Bahasa';
+    // Mendapatkan bahasa dari nama file gambar
+    String languageName = languageMap[widget.img] ?? 'Bahasa';
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -33,7 +32,6 @@ class _CoursesDetailState extends State<CoursesDetail> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Stack(
-                alignment: Alignment.bottomCenter,
                 children: [
                   Container(
                     height: height * 0.3,
@@ -54,9 +52,9 @@ class _CoursesDetailState extends State<CoursesDetail> {
                       },
                       child: Container(
                         padding: const EdgeInsets.all(8),
-                        decoration: const BoxDecoration(
-                          color: Color(0xFF4CAF50),
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.5),
+                          borderRadius: BorderRadius.circular(20),
                         ),
                         child: const Icon(
                           Icons.arrow_back,
@@ -70,9 +68,9 @@ class _CoursesDetailState extends State<CoursesDetail> {
                     right: 16,
                     child: Container(
                       padding: const EdgeInsets.all(8),
-                      decoration: const BoxDecoration(
-                        color: Color(0xFF4CAF50),
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                      decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(20),
                       ),
                       child: const Icon(
                         Icons.notifications,
@@ -80,17 +78,17 @@ class _CoursesDetailState extends State<CoursesDetail> {
                       ),
                     ),
                   ),
-                  Container(
-                    height: height * 0.07,
-                    width: double.infinity,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
+                  Positioned(
+                    bottom: 0,
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
+                        ),
                       ),
-                    ),
-                    child: Padding(
                       padding: const EdgeInsets.all(16),
                       child: Text(
                         "Materi $languageName",
@@ -140,7 +138,7 @@ class _CoursesDetailState extends State<CoursesDetail> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Card(
-                  color: Color(0xFF4CAF50),
+                  color: const Color(0xFF4CAF50),
                   child: Padding(
                     padding: const EdgeInsets.all(16),
                     child: Row(
@@ -201,14 +199,14 @@ class TitleDetail extends StatelessWidget {
           Text(
             title,
             style: const TextStyle(
-              fontSize: 12,
+              fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
           ),
           const SizedBox(height: 10),
           Text(
             detail,
-            style: const TextStyle(fontSize: 12),
+            style: const TextStyle(fontSize: 14),
           ),
         ],
       ),
