@@ -14,6 +14,18 @@ class _CoursesDetailState extends State<CoursesDetail> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
 
+    // Mapping nama file gambar dengan bahasa terkait
+    Map<String, String> languageMap = {
+      'english': 'Bahasa Inggris',
+      'germany': 'Bahasa Jerman',
+      'spain': 'Bahasa Spanyol',
+      'italy': 'Bahasa Italia',
+    };
+
+    // Mendapatkan bagian dari nama file gambar untuk menentukan bahasa
+    String imgName = widget.img.split('_').first;
+    String languageName = languageMap[imgName.toLowerCase()] ?? 'Bahasa';
+
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
@@ -78,11 +90,11 @@ class _CoursesDetailState extends State<CoursesDetail> {
                         topRight: Radius.circular(20),
                       ),
                     ),
-                    child: const Padding(
-                      padding: EdgeInsets.all(16),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
                       child: Text(
-                        "Materi Bahasa Inggris",
-                        style: TextStyle(
+                        "Materi $languageName",
+                        style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),
