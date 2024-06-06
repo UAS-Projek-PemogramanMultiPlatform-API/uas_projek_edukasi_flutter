@@ -6,41 +6,39 @@ import 'package:projek_aplikasi_edukasi_uas/forum_diskusi.dart';
 class Category extends StatelessWidget {
   final String name;
   final Color color;
-  final Icon? icon; // Make icon optional by adding '?'
+  final Icon? icon;
 
   const Category({
-    required Key key, // Change super.key to Key key
+    required Key key,
     required this.name,
     required this.color,
-    this.icon, // Change Icon to Icon?
-  }) : super(key: key); // Assign key to super
+    this.icon,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         if (name == 'Quiz') {
-          // Check if the category is Quiz
           Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) =>
-                    const QuizLanguageSelectionPage()), // Navigate to QuizLanguageSelectionPage
+              builder: (context) => const QuizLanguageSelectionPage(),
+            ),
           );
         } else if (name == 'Forum Diskusi') {
-          // Check if the category is Forum Diskusi
           Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) =>
-                    const ForumDiscussionPage()), // Navigate to ForumDiskusiPage
+              builder: (context) => const ForumDiscussionPage(),
+            ),
           );
         } else if (name == 'Kamus') {
-          // Check if the category is Kamus
           Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => const KamusPage()), // Navigate to KamusPage
+              builder: (context) => const KamusPage(),
+            ),
           );
         }
       },
@@ -54,7 +52,10 @@ class Category extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             child: Center(
-              child: icon ?? Container(), // Handle null icon
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 10), // Adjust this value to move the icon
+                child: icon ?? Container(),
+              ),
             ),
           ),
           const SizedBox(height: 10),
@@ -65,7 +66,7 @@ class Category extends StatelessWidget {
               fontWeight: FontWeight.w500,
               color: Colors.black.withOpacity(0.8),
             ),
-          )
+          ),
         ],
       ),
     );

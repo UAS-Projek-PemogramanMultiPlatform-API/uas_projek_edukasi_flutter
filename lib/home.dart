@@ -75,7 +75,16 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 20, left: 15, right: 15),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                const Text(
+                  'Categories',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 10),
                 GridView.builder(
                   itemCount: CategoryData.catNames.length,
                   shrinkWrap: true,
@@ -83,6 +92,8 @@ class HomePage extends StatelessWidget {
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     childAspectRatio: 1.1,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
                   ),
                   itemBuilder: (context, index) {
                     return Category(
@@ -93,6 +104,7 @@ class HomePage extends StatelessWidget {
                     );
                   },
                 ),
+                const SizedBox(height: 20),
                 const Courses(), // Panggil widget Courses di sini
               ],
             ),
@@ -102,13 +114,13 @@ class HomePage extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         showUnselectedLabels: true,
         iconSize: 32,
-        selectedItemColor: Color(0xFF4CAF50),
+        selectedItemColor: const Color(0xFF4CAF50),
         selectedFontSize: 18,
         unselectedItemColor: Colors.blueGrey,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Beranda'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_4), label: 'Profil')
+              icon: Icon(Icons.person_4), label: 'Profil')
         ],
         onTap: (index) {
           if (index == 1) {
@@ -119,8 +131,6 @@ class HomePage extends StatelessWidget {
           }
         }
       ),
-
     );
   }
 }
-
